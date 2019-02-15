@@ -40,7 +40,7 @@ InputGroup.propTypes = {
 	placeholder: PropTypes.string.isRequired,
 	value: PropTypes.string.isRequired,
 	icon: PropTypes.string.isRequired,
-	error: PropTypes.string.isRequired,
+	error: PropTypes.string,
 	type: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired
 };

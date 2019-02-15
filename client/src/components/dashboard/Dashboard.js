@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { getCurrentProfile, deleteAccount } from "../../actions/profileAction";
 import Spinner from "../common/Spinner";
 import ProfileActions from './ProfileActions';
+import Experience from '../credentials/Experience';
+import Education from '../credentials/Education';
 
 class Dashboard extends Component {
 	componentDidMount() {
@@ -32,9 +34,24 @@ class Dashboard extends Component {
 					<div>
 						<p className="lead text-muted">Welcome <Link to={`/profile/${profile.handle}`}>{ user.name }</Link></p>
 						<ProfileActions />
-						{/*{TODO: exp and edu}*/}
+						<Experience experience={profile.experience}/>
+						<div className="btn-group mb-4" role="group">
+							<Link to="/add-experience" className="btn btn-light">
+								<i className="fa fa-black-tie text-info mr-1"></i>
+								Add Experience</Link>
+						</div>
+						<div style={{marginBottom: '30px'}} />
+
+						<Education education={profile.education}/>
+						<div className="btn-group mb-4" role="group">
+							<Link to="/add-education" className="btn btn-light">
+								<i className="fa fa-graduation-cap text-info mr-1"></i>
+								Add Education
+							</Link>
+						</div>
+
 						<div style={{marginBottom: '60px'}} />
-							<buttom onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account</buttom>
+							<button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">Delete My Account</button>
 					</div>
 				)
 			} else {
@@ -68,7 +85,7 @@ Dashboard.propTypes = {
 	getCurrentProfile: PropTypes.func.isRequired,
 	deleteAccount: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
-	profil: PropTypes.object.isRequired
+	profil: PropTypes.object
 };
 
 const mapStateToProps = state => ({
