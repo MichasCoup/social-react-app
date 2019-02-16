@@ -70,8 +70,8 @@ class Dashboard extends Component {
 			<div className="dashboard">
 				<div className="container">
 					<div className="row">
-						<div className="col-md-12">
-							<h1 className="display-4">Dashboard</h1>
+						<div className="col-md-8 m-auto">
+							<h1 className="display-4 text-center">Dashboard</h1>
 							{dashboardContent}
 						</div>
 					</div>
